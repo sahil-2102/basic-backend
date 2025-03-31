@@ -15,4 +15,10 @@ app.use(express.urlencoded({
 app.use(express.static("public"))
 app.use(cookieParser())
 
+// Importing and using the routes using Router Class from express
+import userRouter from "./routes/user.routes.js" // Don't use braces when express default is used
+
+app.use("/api/v1/users",userRouter); //Now all the request coming at /users will pass the control
+                                     //  to userRouter that contains all routes
+
 export { app }
